@@ -26,5 +26,8 @@
             "wave_left_right": true,
             "wave_up_down": true
         }
+    },
+    "dynamic_keymap": {
+        "layer_count": 5
     }
 }

@@ -50,3 +50,5 @@
 
 #    define LED_MATRIX_KEYPRESSES
 #endif
+
+#define TAPPING_TOGGLE 2
