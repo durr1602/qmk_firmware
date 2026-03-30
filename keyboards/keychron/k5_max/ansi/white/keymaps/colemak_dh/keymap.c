@@ -18,6 +18,27 @@
 #include "keychron_common.h"
 #include "keymap_canadian_french.h"
 
+// Key overrides
+const key_override_t scln_cln_swap = ko_make_basic(MOD_MASK_SHIFT, KC_COLN, KC_SCLN);
+const key_override_t s_frquot_override = ko_make_basic(MOD_MASK_SHIFT, FR_QUOT, FR_DQUO);
+const key_override_t s_frcomm_override = ko_make_basic(MOD_MASK_SHIFT, FR_COMM, FR_LABK);
+const key_override_t s_frdot_override = ko_make_basic(MOD_MASK_SHIFT, FR_DOT, FR_RABK);
+const key_override_t s_frlbrc_override = ko_make_basic(MOD_MASK_SHIFT, FR_LBRC, FR_LCBR);
+const key_override_t s_frrbrc_override = ko_make_basic(MOD_MASK_SHIFT, FR_RBRC, FR_RCBR);
+const key_override_t s_frslash_override = ko_make_basic(MOD_MASK_SHIFT, FR_SLSH, FR_QUES);
+const key_override_t s_frbslash_override = ko_make_basic(MOD_MASK_SHIFT, FR_BSLS, FR_PIPE);
+
+const key_override_t *key_overrides[] = {
+	&scln_cln_swap,
+    &s_frquot_override,
+    &s_frcomm_override,
+    &s_frdot_override,
+    &s_frlbrc_override,
+    &s_frrbrc_override,
+    &s_frslash_override,
+    &s_frbslash_override
+};
+
 // Define layers
 enum layers {
     _COLEMAK,
@@ -88,7 +109,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * direct é
  * ` (grave)
  * ^ (circumflex)
- * ¨ (diaeresis) - Shift + ^
+ * ¨ (diaeresis)
  * ¸ (cedilla)
  */
     [_COLEMAK_FR] = LAYOUT_108_ansi(
