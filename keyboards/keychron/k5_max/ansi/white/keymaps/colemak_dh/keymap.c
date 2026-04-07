@@ -18,15 +18,24 @@
 #include "keychron_common.h"
 #include "keymap_canadian_french.h"
 
+// Define layers
+enum layers {
+    _COLEMAK,
+    _COLEMAK_FN,
+    _QWERTY,
+    _QWERTY_FN,
+    _COLEMAK_FR,
+};
+
 // Key overrides
-const key_override_t scln_cln_swap = ko_make_basic(MOD_MASK_SHIFT, KC_COLN, KC_SCLN);
-const key_override_t s_frquot_override = ko_make_basic(MOD_MASK_SHIFT, FR_QUOT, FR_DQUO);
-const key_override_t s_frcomm_override = ko_make_basic(MOD_MASK_SHIFT, FR_COMM, FR_LABK);
-const key_override_t s_frdot_override = ko_make_basic(MOD_MASK_SHIFT, FR_DOT, FR_RABK);
-const key_override_t s_frlbrc_override = ko_make_basic(MOD_MASK_SHIFT, FR_LBRC, FR_LCBR);
-const key_override_t s_frrbrc_override = ko_make_basic(MOD_MASK_SHIFT, FR_RBRC, FR_RCBR);
-const key_override_t s_frslash_override = ko_make_basic(MOD_MASK_SHIFT, FR_SLSH, FR_QUES);
-const key_override_t s_frbslash_override = ko_make_basic(MOD_MASK_SHIFT, FR_BSLS, FR_PIPE);
+const key_override_t scln_cln_swap = ko_make_with_layers(MOD_MASK_SHIFT, KC_COLN, KC_SCLN, (1UL << _COLEMAK) | (1UL << _COLEMAK_FR));
+const key_override_t s_frquot_override = ko_make_with_layers(MOD_MASK_SHIFT, FR_QUOT, FR_DQUO, (1UL << _COLEMAK) | (1UL << _COLEMAK_FR));
+const key_override_t s_frcomm_override = ko_make_with_layers(MOD_MASK_SHIFT, FR_COMM, FR_LABK, (1UL << _COLEMAK) | (1UL << _COLEMAK_FR));
+const key_override_t s_frdot_override = ko_make_with_layers(MOD_MASK_SHIFT, FR_DOT, FR_RABK, (1UL << _COLEMAK) | (1UL << _COLEMAK_FR));
+const key_override_t s_frlbrc_override = ko_make_with_layers(MOD_MASK_SHIFT, FR_LBRC, FR_LCBR, (1UL << _COLEMAK) | (1UL << _COLEMAK_FR));
+const key_override_t s_frrbrc_override = ko_make_with_layers(MOD_MASK_SHIFT, FR_RBRC, FR_RCBR, (1UL << _COLEMAK) | (1UL << _COLEMAK_FR));
+const key_override_t s_frslash_override = ko_make_with_layers(MOD_MASK_SHIFT, FR_SLSH, FR_QUES, (1UL << _COLEMAK) | (1UL << _COLEMAK_FR));
+const key_override_t s_frbslash_override = ko_make_with_layers(MOD_MASK_SHIFT, FR_BSLS, FR_PIPE, (1UL << _COLEMAK) | (1UL << _COLEMAK_FR));
 
 const key_override_t *key_overrides[] = {
 	&scln_cln_swap,
@@ -37,15 +46,6 @@ const key_override_t *key_overrides[] = {
     &s_frrbrc_override,
     &s_frslash_override,
     &s_frbslash_override
-};
-
-// Define layers
-enum layers {
-    _COLEMAK,
-    _COLEMAK_FN,
-    _QWERTY,
-    _QWERTY_FN,
-    _COLEMAK_FR,
 };
 
 // clang-format on
