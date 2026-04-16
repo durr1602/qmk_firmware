@@ -52,3 +52,4 @@
 #endif
 
 #define TAPPING_TOGGLE 2
+#define LEADER_TIMEOUT 500
