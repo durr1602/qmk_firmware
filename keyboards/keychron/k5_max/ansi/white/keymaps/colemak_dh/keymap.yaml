@@ -37,9 +37,9 @@ layers:
   - ['0', '-', '=', BSPC, INS, HOME, PGUP, NUM, PSLS, PAST]
   - [PMNS, TAB, Q, W, F, P, B, J, L, U]
   - [Y, ':', FR DCIR, FR CEDL, FR DGRV, DEL, END, PGDN, P7, P8]
-  - [P9, QK LEAD, A, R, S, T, G, M, N, E]
+  - [P9, QK LEAD, A, R, S, T, G, M, N, TD(TD EACU)]
   - [I, O, FR QUOT, ENT, P4, P5, P6, PPLS, LSFT, X]
-  - [C, D, V, Z, K, H, ',', ., FR EACU, RSFT]
+  - [C, D, V, Z, K, H, ',', ., FR SLSH, RSFT]
   - - UP
     - P1
     - P2

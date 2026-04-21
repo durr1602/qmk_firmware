@@ -48,6 +48,17 @@ const key_override_t *key_overrides[] = {
     &s_frbslash_override
 };
 
+// Tap dance declarations
+enum {
+    TD_EACU,
+};
+
+// Tap Dance definitions
+tap_dance_action_t tap_dance_actions[] = {
+    // Tap once for Escape, twice for Caps Lock
+    [TD_EACU] = ACTION_TAP_DANCE_DOUBLE(KC_E, FR_EACU),
+};
+
 // set leader key combos
 void leader_start_user(void) {
     // Do something when the leader key is pressed
@@ -55,13 +66,8 @@ void leader_start_user(void) {
 
 void leader_end_user(void) {
     // --- TWO KEY SEQUENCES FIRST ---
-    if (leader_sequence_two_keys(KC_E, KC_E)) {
-        // Leader + e + e = è
-        tap_code16(FR_DGRV);
-        tap_code16(KC_E);
-
-    } else if (leader_sequence_two_keys(KC_F, KC_E)) {
-        // Leader + f + e = ê
+    if (leader_sequence_two_keys(KC_F, KC_N)) {
+        // Leader + f + n = ê
         tap_code16(FR_DCIR);
         tap_code16(KC_E);
 
@@ -70,15 +76,26 @@ void leader_end_user(void) {
         tap_code16(FR_DCIR);
         tap_code16(KC_A);
 
+    } else if (leader_sequence_two_keys(KC_F, KC_O)) {
+        // Leader + f + o = ô
+        tap_code16(FR_DCIR);
+        tap_code16(KC_O);
+
     } else if (leader_sequence_two_keys(KC_F, KC_U)) {
         // Leader + f + u = û
         tap_code16(FR_DCIR);
         tap_code16(KC_U);
 
+    } else if (leader_sequence_two_keys(KC_F, KC_I)) {
+        // Leader + f + i = î
+        tap_code16(FR_DCIR);
+        tap_code16(KC_I);
+
     // --- ONE KEY SEQUENCES LAST ---
-    } else if (leader_sequence_one_key(KC_E)) {
-        // Leader + e = é
-        tap_code16(FR_EACU);
+    } else if (leader_sequence_one_key(KC_N)) {
+        // Leader + n = è
+        tap_code16(FR_DGRV);
+        tap_code16(KC_E);
 
     } else if (leader_sequence_one_key(KC_A)) {
         // Leader + a = à
@@ -165,8 +182,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC,             KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,  KC_PSCR,  KC_CTANA, BL_STEP,  _______,  _______,  _______,  _______,
         FR_HASH,  KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC, KC_INS,   KC_HOME,  KC_PGUP,  KC_NUM,   KC_PSLS,  KC_PAST,  KC_PMNS,
         KC_TAB,   KC_Q,     KC_W,     KC_F,     KC_P,     KC_B,     KC_J,     KC_L,     KC_U,     KC_Y,     KC_COLN,  FR_DCIR,  FR_CEDL,  FR_DGRV, KC_DEL,   KC_END,   KC_PGDN,  KC_P7,    KC_P8,    KC_P9,
-        QK_LEAD,  KC_A,     KC_R,     KC_S,     KC_T,     KC_G,     KC_M,     KC_N,     KC_E,     KC_I,     KC_O,     FR_QUOT,            KC_ENT,                                KC_P4,    KC_P5,    KC_P6,    KC_PPLS,
-        KC_LSFT,            KC_X,     KC_C,     KC_D,     KC_V,     KC_Z,     KC_K,     KC_H,     KC_COMM,  KC_DOT,   FR_EACU,            KC_RSFT,           KC_UP,              KC_P1,    KC_P2,    KC_P3,
+        QK_LEAD,  KC_A,     KC_R,     KC_S,     KC_T,     KC_G,     KC_M,     KC_N,     TD(TD_EACU),KC_I,   KC_O,     FR_QUOT,            KC_ENT,                                KC_P4,    KC_P5,    KC_P6,    KC_PPLS,
+        KC_LSFT,            KC_X,     KC_C,     KC_D,     KC_V,     KC_Z,     KC_K,     KC_H,     KC_COMM,  KC_DOT,   FR_SLSH,            KC_RSFT,           KC_UP,              KC_P1,    KC_P2,    KC_P3,
         KC_LCTL,  KC_LWIN,  KC_LALT,                                KC_SPC,                                 KC_RALT,  _______,MO(_COLEMAK_FN),KC_RCTL,KC_LEFT,KC_DOWN, KC_RGHT,  KC_P0,              KC_PDOT,  KC_PENT
     ),
 
