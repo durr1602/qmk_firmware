@@ -65,8 +65,18 @@ void leader_start_user(void) {
 
 void leader_end_user(void) {
     // --- TWO KEY SEQUENCES FIRST (if any) ---
+    if (leader_sequence_two_keys(KC_N, KC_N)) {
+        // Leader + n + n = `
+        tap_code16(FR_DGRV);
+        tap_code16(KC_SPC);
+    
+    } else if (leader_sequence_two_keys(KC_U, KC_U)) {
+        // Leader + u + u = ^^
+        tap_code16(FR_DCIR);
+        tap_code16(FR_DCIR);
+
     // --- ONE KEY SEQUENCES LAST ---
-    if (leader_sequence_one_key(KC_N)) {
+    } else if (leader_sequence_one_key(KC_N)) {
         // Leader + n = `
         tap_code16(FR_DGRV);
     
