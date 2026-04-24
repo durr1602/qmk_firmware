@@ -58,6 +58,34 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_EACU] = ACTION_TAP_DANCE_DOUBLE(KC_E, FR_EACU),
 };
 
+// Combos (chords)
+enum combos {
+    NI_BTCK,
+    FT_CIRC,
+    CCOM_CCEDL
+};
+
+const uint16_t PROGMEM ni_combo[] = {KC_N, KC_I, COMBO_END};
+const uint16_t PROGMEM ft_combo[] = {KC_F, KC_T, COMBO_END};
+const uint16_t PROGMEM ccom_combo[] = {KC_C, KC_COMM, COMBO_END};
+
+combo_t key_combos[] = {
+    [NI_BTCK] = COMBO(ni_combo, FR_DGRV),
+    [FT_CIRC] = COMBO(ft_combo, FR_DCIR),
+    [CCOM_CCEDL] = COMBO_ACTION(ccom_combo),
+};
+
+void process_combo_event(uint16_t combo_index, bool pressed) {
+    switch(combo_index) {
+        case CCOM_CCEDL:
+            if (pressed) {
+                tap_code16(FR_CEDL);
+                tap_code16(KC_C);
+            }
+            break;
+    }
+}
+
 // set leader key combos
 void leader_start_user(void) {
     // Do something when the leader key is pressed

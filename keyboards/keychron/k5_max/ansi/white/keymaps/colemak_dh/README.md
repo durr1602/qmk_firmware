@@ -16,24 +16,28 @@ I'm keeping a default (standard QWERTY) layer that can be activated with a physi
 I'm using the local aliases from [the French Canadian header](/quantum/keymap_extras/keymap_canadian_french.h)
 
 Tap dance:
-- ee = é
+- `ee` = `é`
 
-Leader combos:
+Combos (chords):
+- `n` + `i` = `` ` ``
+- `f` + `t` = `^`
+- `c` + `,` = `ç`
+
+Leader combos (soon to be deprecated):
 - `QK_LEAD` (`CAPS`), `n` = `` ` ``
 - `QK_LEAD` (`CAPS`), `u` = `^`
 
 ## Visual
 
-Using [keymap-drawer](https://github.com/caksoylar/keymap-drawer/tree/main), I generated [a YAML](./keymap.yaml) with `qmk c2json --no-cpp keymap.c | keymap parse -c 10 -q - >keymap.yaml`.
+Using [`keymap-drawer`](https://github.com/caksoylar/keymap-drawer/tree/main), I generated [a YAML](./keymap.yaml) with `qmk c2json --no-cpp keymap.c | keymap parse -c 10 -q - >keymap.yaml`.
 
 Then, I edited manually and generated a SVG with `keymap draw keymap.yaml -j ../../../../info.json >keymap.svg`
 
 > [!WARNING]
-> The visual **only** includes **basic** stuff and therefore doesn't currently display overriden shifts, leader combos
+> The visual **only** includes **basic** stuff and therefore doesn't currently display overriden shifts, combos
 
 ![Keymap layout](./keymap.svg)
 
 ## Roadmap
 
-- [x] Turn 3-key leader combos into leader, deadkey
-- [x] Single layer
+- [x] Better combos for dead keys (chording)
