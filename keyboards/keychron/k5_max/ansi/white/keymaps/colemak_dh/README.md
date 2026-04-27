@@ -33,9 +33,6 @@ Using [`keymap-drawer`](https://github.com/caksoylar/keymap-drawer/tree/main), I
 
 Then, I edited manually and generated a SVG with `keymap draw keymap.yaml -j ../../../../info.json >keymap.svg`
 
-> [!WARNING]
-> The visual **only** includes **basic** stuff and therefore doesn't currently display overriden shifts, combos
-
 ![Keymap layout](./keymap.svg)
 
 ## Roadmap

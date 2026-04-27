@@ -12,12 +12,16 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-  - [FR HASH, '1', '2', '3', '4', '5', '6', '7', '8', '9']
-  - ['0', '-', '=', BSPC, INS, HOME, PGUP, NUM, PSLS, PAST]
-  - [PMNS, TAB, Q, W, F, P, B, J, L, U]
-  - [Y, ':', FR LBRC, FR RBRC, FR BSLS, DEL, END, PGDN, P7, P8]
+  - ["| #", '1', '2', '3', '4', '5', '6', '7', '8', '9']
+  - ['0', '-', '=', ⌫ BSPC, INS, ⤒ HOME, ⇞ PGUP, NUM, PSLS, PAST]
+  - [PMNS, ↹ TAB, Q, W, F, P, B, J, L, U]
+  - [Y, "; :", "{ [", "} ]", "| \\", DEL, ⤓ END, ⇟ PGDN, P7, P8]
   - [P9, QK LEAD, A, R, S, T, G, M, N, E/É]
-  - [I, O, FR QUOT, ENT, P4, P5, P6, PPLS, LSFT, X]
-  - [C, D, V, Z, K, H, ',', ., FR SLSH, RSFT]
-  - [UP, P1, P2, P3, LCTL, LWIN, LALT, SPC, RALT, RWIN]
-  - [MO( COLEMAK FN), RCTL, LEFT, DOWN, RGHT, P0, PDOT, PENT]
+  - [I, O, "\" '", ⮠  Enter, P4, P5, P6, PPLS, ⇧ LSHFT, X]
+  - [C, D, V, Z, K, H, ',', ., "? /", ⇧ RSHFT]
+  - [🡅 UP, P1, P2, P3, LCTL, LWIN, LALT, SPC, RALT, RWIN]
+  - [FN, RCTL, 🡄 LEFT, 🡇 DOWN, 🡆 RIGHT, P0, PDOT, PENT]
+combos:
+  - { tk: [N, I], k: "`", l: [_COLEMAK], a: "top", offset: -0.09}
+  - { tk: [F, T], k: "^", l: [_COLEMAK], dendron: True }
+  - { tk: [C, ","], k: "ç", l: [_COLEMAK], a: "bottom", offset: -0.09, slide: -0.8 }
